@@ -28,7 +28,7 @@ class PhpCsFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $code = file_get_contents(__DIR__.'/../resources/PhpCodeFiles/badIndentationCode.txt');
         $formattedCode = $this->sut->formatCode($code);
-        $expectedCode = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/expectedBadIndentationCode.txt');
+        $expectedCode = file_get_contents(__DIR__.'/../resources/PhpCodeFiles/expectedBadIndentationCode.txt');
         $this->assertEquals($expectedCode, $formattedCode);
     }
 
