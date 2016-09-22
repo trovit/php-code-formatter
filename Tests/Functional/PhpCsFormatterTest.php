@@ -14,20 +14,20 @@ class PhpCsFormatterTest extends \PHPUnit_Framework_TestCase
     /**
      * @var PhpCsFormatter
      */
-    private $su;
+    private $sut;
 
     /**
      * Sets up the required objects
      */
     protected function setUp()
     {
-        $this->su = new PhpCsFormatter(new FileHandler(__DIR__.'/../Resources/'));
+        $this->sut = new PhpCsFormatter(new FileHandler(__DIR__.'/../Resources/'));
     }
 
     public function testFormatCode()
     {
         $code = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/badIndentationCode.txt');
-        $formattedCode = $this->su->formatCode($code);
+        $formattedCode = $this->sut->formatCode($code);
         $expectedCode = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/expectedBadIndentationCode.txt');
         $this->assertEquals($expectedCode, $formattedCode);
     }
@@ -35,7 +35,7 @@ class PhpCsFormatterTest extends \PHPUnit_Framework_TestCase
     public function testFormatCodeAlreadyFormattedCode()
     {
         $code = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/expectedBadIndentationCode.txt');
-        $formattedCode = $this->su->formatCode($code);
+        $formattedCode = $this->sut->formatCode($code);
         $this->assertEquals($code, $formattedCode);
     }
 }

@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Trovit\\PhpCodeFormatter\\Tests\\": "Tests/",
+            "Trovit\\PhpCodeFormatter\\Tests\\": "tests/",
             "Trovit\\PhpCodeFormatter\\": "src/"
         }
     }

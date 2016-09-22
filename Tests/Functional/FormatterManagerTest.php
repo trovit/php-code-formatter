@@ -15,25 +15,25 @@ class FormatterManagerTest extends \PHPUnit_Framework_TestCase
 {
     public function testExecuteManager()
     {
-        $su = new FormatterManager(
-            [new PhpCsFormatter(new FileHandler(__DIR__.'/../Resources/'))]
+        $sut = new FormatterManager(
+            [new PhpCsFormatter(new FileHandler(__DIR__.'/../resources/'))]
         );
-        $code = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/badIndentationCode.txt');
-        $formattedCode = $su->execute($code);
-        $expectedCode = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/expectedBadIndentationCode.txt');
+        $code = file_get_contents(__DIR__.'/../resources/PhpCodeFiles/badIndentationCode.txt');
+        $formattedCode = $sut->execute($code);
+        $expectedCode = file_get_contents(__DIR__.'/../resources/PhpCodeFiles/expectedBadIndentationCode.txt');
         $this->assertEquals($formattedCode, $expectedCode);
     }
 
     public function testFormatCodeWithoutFormatters(){
-        $su = new FormatterManager([]);
-        $code = file_get_contents(__DIR__.'/../Resources/PhpCodeFiles/badIndentationCode.txt');
-        $formattedCode = $su->execute($code);
+        $sut = new FormatterManager([]);
+        $code = file_get_contents(__DIR__.'/../resources/PhpCodeFiles/badIndentationCode.txt');
+        $formattedCode = $sut->execute($code);
         $this->assertEquals($code, $formattedCode);
     }
 
     public function testFormatCodeWithBadFormatterClass(){
-        $su = new FormatterManager([new \stdClass]);
+        $sut = new FormatterManager([new \stdClass]);
         $this->expectException(BadClassProvidedException::class);
-        $su->execute('');
+        $sut->execute('');
     }
 }
