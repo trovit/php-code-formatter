@@ -1,0 +1,9 @@
+<?php
+
+class FakeClass
+{
+    public function fakeMethod()
+    {
+        echo 'fake code';
+    }
+}

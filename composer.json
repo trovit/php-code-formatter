@@ -1,0 +1,24 @@
+{
+    "name": "trovit/php-code-formatter",
+    "description": "Provides a basic system to organize and execute php code formatters",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trovit",
+            "email": "github@trovit.com"
+        }
+    ],
+    "require": {
+        "trovit/temporary-filesystem": "v1.0.*",
+        "fabpot/php-cs-fixer": "1.12.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Trovit\\PhpCodeFormatter\\Tests\\": "Tests/",
+            "Trovit\\PhpCodeFormatter\\": "src/"
+        }
+    }
+}
