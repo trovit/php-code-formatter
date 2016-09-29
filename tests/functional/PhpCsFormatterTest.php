@@ -21,7 +21,7 @@ class PhpCsFormatterTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->sut = new PhpCsFormatter(new FileHandler(__DIR__.'/../Resources/'));
+        $this->sut = new PhpCsFormatter(new FileHandler(__DIR__.'/../resources/'));
     }
 
     public function testFormatCode()

@@ -17,8 +17,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Trovit\\PhpCodeFormatter\\Tests\\": "tests/",
             "Trovit\\PhpCodeFormatter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Trovit\\PhpCodeFormatter\\Tests\\Functional\\": "tests/functional",
+            "Trovit\\PhpCodeFormatter\\Tests\\unit\\": "tests/unit"
         }
     }
 }
