@@ -28,11 +28,11 @@ class FormatterManager
     }
 
     /**
-     * Execute a group of strategies.
+     * Format code using configured formatters
      *
      * @param string $code
      * @return string $code formatted code
-     * @throws \Exception
+     * @throws BadClassProvidedException
      */
     public function execute($code)
     {

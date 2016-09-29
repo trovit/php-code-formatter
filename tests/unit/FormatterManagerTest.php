@@ -13,18 +13,20 @@ class FormatterManagerTest extends \PHPUnit_Framework_TestCase
 {
     public function testExecute()
     {
+        $expectedFormattedCode = 'formatted code';
         $sut = new FormatterManager(
-            [$this->getPhpCsFormatterMock()]
+            [$this->getPhpCsFormatterMock($expectedFormattedCode)]
         );
+        $formattedCode = $sut->execute('code');
 
-        $sut->execute('code');
-
+        static::assertEquals($expectedFormattedCode, $formattedCode);
     }
 
     /**
+     * @param $formattedCode
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getPhpCsFormatterMock()
+    private function getPhpCsFormatterMock($formattedCode)
     {
         $mock = $this->getMockBuilder(PhpCsFormatter::class)
             ->disableOriginalConstructor()
@@ -32,7 +34,7 @@ class FormatterManagerTest extends \PHPUnit_Framework_TestCase
 
         $mock->expects($this->exactly(1))
             ->method('formatCode')
-            ->willReturn('code');
+            ->willReturn($formattedCode);
 
         return $mock;
     }
