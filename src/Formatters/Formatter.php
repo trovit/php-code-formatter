@@ -5,12 +5,12 @@ namespace Trovit\PhpCodeFormatter\Formatters;
  * Class Formatter
  * @package Trovit\PhpCodeFormatter\Formatters
  */
-abstract class Formatter
+interface Formatter
 {
     /**
      * @param string $code
      * @return string $formattedCode
      * @throws \Exception
      */
-    public abstract function formatCode($code);
+    public function formatCode($code);
 }

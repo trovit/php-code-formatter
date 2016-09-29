@@ -1,7 +1,6 @@
 <?php
 namespace Trovit\PhpCodeFormatter\Formatters;
 
-use Symfony\Component\Stopwatch\Stopwatch;
 use Symfony\CS\Config;
 use Symfony\CS\ConfigurationResolver;
 use Symfony\CS\ErrorsManager;
@@ -15,7 +14,7 @@ use Trovit\TemporaryFilesystem\FileHandler;
  *
  * @package Trovit\PhpCodeFormatter\Formatters
  */
-class PhpCsFormatter extends Formatter
+class PhpCsFormatter implements Formatter
 {
 
     /**
