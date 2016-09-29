@@ -6,6 +6,7 @@ use Symfony\CS\Config;
 use Symfony\CS\ConfigurationResolver;
 use Symfony\CS\ErrorsManager;
 use Symfony\CS\Fixer;
+use Trovit\TemporaryFilesystem\FileHandler;
 
 /**
  * Class PhpCsFormatter
@@ -16,6 +17,21 @@ use Symfony\CS\Fixer;
  */
 class PhpCsFormatter extends Formatter
 {
+
+    /**
+     * @var FileHandler
+     */
+    private $fileHandler;
+
+    /**
+     * PhpFormatterValidatorTool constructor.
+     * @param FileHandler $fileHandler
+     */
+    public function __construct(FileHandler $fileHandler)
+    {
+        $this->fileHandler = $fileHandler;
+    }
+
     /**
      * @param string $code
      * @return string $formattedCode
@@ -27,20 +43,16 @@ class PhpCsFormatter extends Formatter
 
         $defaultConfig = new Config();
         $errorsManager = new ErrorsManager();
-        $stopwatch = new Stopwatch();
-
         $fixer = new Fixer();
+
         $fixer->registerBuiltInFixers();
         $fixer->registerBuiltInConfigs();
-        $fixer->setStopwatch($stopwatch);
         $fixer->setErrorsManager($errorsManager);
 
         $config = $defaultConfig;
-
         $config->finder(new \ArrayIterator(array(new \SplFileInfo($filePath))));
 
         $resolver = new ConfigurationResolver();
-
         $resolver
             ->setAllFixers($fixer->getFixers())
             ->setConfig($config)
@@ -52,15 +64,8 @@ class PhpCsFormatter extends Formatter
             ->resolve();
 
         $config->fixers($resolver->getFixers());
-
-        $stopwatch->start('fixFiles');
-
         $fixer->fix($config, false, false);
-
-        $stopwatch->stop('fixFiles');
-
         $formattedCode = $this->fileHandler->getFileContent($filePath);
-
         $this->fileHandler->deleteTemporaryFile($filePath);
 
         return $formattedCode;
