@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "trovit/temporary-filesystem": "v1.0.*",
-        "friendsofphp/php-cs-fixer": "1.12.*"
+        "trovit/temporary-filesystem": "^1.0",
+        "friendsofphp/php-cs-fixer": "^1.12"
     },
     "require-dev": {
         "phpunit/phpunit": "5.2.*"

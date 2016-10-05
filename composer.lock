@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "567345af3f3687b26d4bcb981fcf9c9d",
-    "content-hash": "ebc6c67562385039e0df8b4fb9e50bda",
+    "hash": "45b6e4d579ee70f87ef7986858e572ae",
+    "content-hash": "6fb6c2cbcc67a22f35264b96a01d4cbb",
     "packages": [
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -599,20 +599,24 @@
         },
         {
             "name": "trovit/temporary-filesystem",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/trovit/temporary-filesystem.git",
-                "reference": "6d3931bdea48dfbf247a0b0661e12d43cf77173d"
+                "reference": "cbd09b710cb9d6b663e2e4694a75ee59302274ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trovit/temporary-filesystem/zipball/6d3931bdea48dfbf247a0b0661e12d43cf77173d",
-                "reference": "6d3931bdea48dfbf247a0b0661e12d43cf77173d",
+                "url": "https://api.github.com/repos/trovit/temporary-filesystem/zipball/cbd09b710cb9d6b663e2e4694a75ee59302274ff",
+                "reference": "cbd09b710cb9d6b663e2e4694a75ee59302274ff",
                 "shasum": ""
             },
             "require": {
-                "symfony/filesystem": "3.1.*"
+                "symfony/filesystem": "^2.6|^3.1"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "5.2.*"
             },
             "type": "library",
             "autoload": {
@@ -631,7 +635,7 @@
                 }
             ],
             "description": "Provides a basic utilities for temporary persisted files",
-            "time": "2016-09-22 13:30:41"
+            "time": "2016-10-05 13:15:16"
         }
     ],
     "packages-dev": [
